@@ -1,0 +1,3 @@
+#!/bin/sh
+# dev wrapper: run from the repo checkout
+exec env PYTHONPATH="$(dirname "$0")/.." python3 -m razerctl "$@"

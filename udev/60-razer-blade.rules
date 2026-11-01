@@ -1,0 +1,5 @@
+# Grant the logged-in user access to the Razer Blade 15 Advanced (2021, RZ09-0409)
+# embedded controller. Uses uaccess (ACL for the active session user) instead of
+# a world-writable 0666 mode.
+# NOTE: must sort before 73-seat-late.rules, or the uaccess tag is ignored.
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1532", ATTRS{idProduct}=="0276", TAG+="uaccess"

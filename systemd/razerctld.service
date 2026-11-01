@@ -1,0 +1,18 @@
+[Unit]
+Description=Razer Blade power profile + fan curve daemon
+After=power-profiles-daemon.service
+Wants=power-profiles-daemon.service
+
+[Service]
+Environment=PYTHONPATH=/usr/local/lib/razerctl
+ExecStart=/usr/bin/python3 -m razerctl.daemon --config /etc/razerctl/config.toml
+# Runs after ANY stop (clean, crash, kill): never leave fans stuck on a manual setting.
+ExecStopPost=/usr/bin/python3 -m razerctl fan auto
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+ProtectHome=yes
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# /etc/razerctl/config.toml  -- restart after editing: sudo systemctl restart razerctld
+poll_seconds  = 2
+hysteresis    = 5          # degrees C below a threshold before a fan level releases
+curve_enabled = true       # false = never touch fans, only follow the power profile
+
+# [temp_C, rpm]. Below the first temperature the EC's own automatic control is used.
+# RPM must be 3500-5000 (model limits). Temperature is max(CPU package, GPU).
+curve = [[75, 3500], [82, 4200], [88, 5000]]
+
+# desktop power profile -> Razer mode (0 balanced, 1 gaming, 2 creator, 3 silent)
+[profile_map]
+power-saver = 3
+balanced    = 0
+performance = 1

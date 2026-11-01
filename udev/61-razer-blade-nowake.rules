@@ -1,0 +1,4 @@
+# The ELAN0406 I2C touchpad (IRQ 61) fires spurious interrupts while the lid is
+# closed. Each one wakes the machine from S3, powerdevil then re-suspends it,
+# and the cycle repeats every ~5-10 s. Lid switch and power button still wake.
+ACTION=="add|bind", SUBSYSTEM=="i2c", KERNEL=="i2c-ELAN0406:00", ATTR{power/wakeup}="disabled"
