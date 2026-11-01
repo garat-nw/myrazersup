@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Razer Blade Control
+Comment=Power mode, fans, keyboard and logo lighting
+Exec=razerctl-gui
+Icon=input-keyboard
+Categories=Settings;HardwareSettings;
+Terminal=false
